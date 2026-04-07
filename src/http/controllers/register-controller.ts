@@ -1,0 +1,26 @@
+import type { FastifyReply, FastifyRequest } from 'fastify';
+import z from 'zod';
+import registerUserFactory from '../../services/user-services/factories/register-user-factory';
+
+export default async function registerController(request: FastifyRequest, reply: FastifyReply) {
+  const requestBodySchema = z.object({
+    email: z.email({
+      message: 'Invalid email address',
+    }),
+    password: z
+      .string()
+      .min(6, { message: 'Password must be at least 6 characters' })
+      .max(100, { message: 'Password must be at most 100 characters' }),
+  });
+
+  const { email, password } = requestBodySchema.parse(request.body);
+
+  try {
+    const registerUserService = registerUserFactory();
+    await registerUserService.execute(email, password);
+  } catch (error) {
+    return reply.status(400).send({ error: error instanceof Error ? error.message : 'Unknown error' });
+  }
+
+  reply.send({ message: 'User registration endpoint' });
+}
