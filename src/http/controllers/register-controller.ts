@@ -12,14 +12,15 @@ export default async function registerController(request: FastifyRequest, reply:
       .string()
       .min(6, { message: 'Password must be at least 6 characters' })
       .max(100, { message: 'Password must be at most 100 characters' }),
+    name: z.string().min(1, { message: 'Name is required' }),
   });
 
-  const { email, password } = requestBodySchema.parse(request.body);
+  const { email, password, name } = requestBodySchema.parse(request.body);
 
   try {
     const userRepository = new InMemoryUserRepository();
     const registerUserService = registerUserFactory(userRepository);
-    await registerUserService.execute({ email, password });
+    await registerUserService.execute({ email, password, name });
   } catch (error) {
     return reply.status(400).send({ error: error instanceof Error ? error.message : 'Unknown error' });
   }
