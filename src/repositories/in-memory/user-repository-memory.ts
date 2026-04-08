@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import type User from "../../@types/user";
+import type { User } from "../../@types/user";
 import type { UserRepository } from "../types/user-repository";
 
 export default class InMemoryUserRepository implements UserRepository {

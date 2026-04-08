@@ -1,4 +1,4 @@
-import type User from "../../@types/user";
+import type { User } from "../../@types/user";
 import UserAlreadyExists from "../../errors/UserAlreadyExists";
 import type { UserRepository } from "../../repositories/types/user-repository";
 
