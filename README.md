@@ -33,7 +33,7 @@ Para garantir a integridade do sistema, foram mapeados os seguintes requisitos:
 
 #### Requisitos Funcionais (RFs)
 - [X] O usuário deve poder se cadastrar;
-- [] O usuário deve poder se autenticar;
+- [X] O usuário deve poder se autenticar;
 - [] O usuário deve poder obter o perfil de um usuário logado;
 - [] O usuário deve poder obter o número de check-ins realizados;
 - [] O usuário deve poder obter seu histórico de check-ins;

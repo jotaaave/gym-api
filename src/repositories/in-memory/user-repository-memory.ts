@@ -3,7 +3,17 @@ import type { UserRepository } from "../types/user-repository";
 import { v4 as uuidv4 } from "uuid";
 
 export default class InMemoryUserRepository implements UserRepository {
-  private users: User[] = [];
+  private users: User[] = [
+    {
+      id: uuidv4(),
+      email: "usertest@example.com",
+      name: "John Doe",
+      passwordHash: "$2b$06$jvUIHg5O3c82Lxjbr72FV.lLbqiStua9KVy5GVb9.zeka96bwSLJW",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+
+    }
+  ];
 
   constructor() {}
 
