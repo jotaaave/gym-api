@@ -24,8 +24,7 @@ export default async function authenticateController(request: FastifyRequest, re
     const { passwordHash, ...userWithoutPassword } = user;
 
     reply.send({
-      message: 'User authenticated successfully',
-      user: userWithoutPassword
+      token: 'fake-jwt-token',
     });
   } catch (error) {
     return reply.status(400).send({ error: error instanceof Error ? error.message : 'Unknown error' });
