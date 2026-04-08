@@ -1,7 +1,7 @@
 import type { User } from "../../@types/user";
 import UserAlreadyExists from "../../errors/UserAlreadyExists";
 import type { UserRepository } from "../../repositories/types/user-repository";
-import { hash } from "crypto";
+import { hash } from 'bcrypt'
 
 export default class RegisterUserService {
   constructor(private userRepository: UserRepository) {}
@@ -13,7 +13,7 @@ export default class RegisterUserService {
       throw new UserAlreadyExists;
     }
 
-    const passwordHash = await hash('sha256', data.passwordHash);
+    const passwordHash = await hash(data.passwordHash, 6);
 
     const user = await this.userRepository.create({ ...data, passwordHash });
 
