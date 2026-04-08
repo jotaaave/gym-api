@@ -13,11 +13,9 @@ export default class RegisterUserService {
     }
 
     const user = await this.userRepository.create(data);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password, ...userWithoutPassword } = user;
 
     return {
-      user: userWithoutPassword,
+      user
     }
   }
 }

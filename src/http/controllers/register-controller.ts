@@ -20,11 +20,13 @@ export default async function registerController(request: FastifyRequest, reply:
   try {
     const userRepository = new InMemoryUserRepository();
     const registerUserService = registerUserFactory(userRepository);
-    const { user } = await registerUserService.execute({ email, password, name });
+    const { user } = await registerUserService.execute({ email, passwordHash: password, name });
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { passwordHash, ...userWithoutPassword } = user;
 
     reply.send({
       message: 'User registered successfully',
-      user
+      user: userWithoutPassword
     });
   } catch (error) {
     return reply.status(400).send({ error: error instanceof Error ? error.message : 'Unknown error' });
