@@ -16,6 +16,7 @@ describe('Register User Service', () => {
 
   it('should be able to register a user successfully', async () => {
     const fakeUser = {
+      name: "João",
       email: 'test@example.com',
       password: 'password123',
     };
@@ -27,6 +28,7 @@ describe('Register User Service', () => {
 
   it('should not be able to register a user with an existing email', async () => {
     const fakeUser = {
+      name: "João",
       email: 'test@example.com',
       password: 'password123',
     };
