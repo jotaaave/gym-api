@@ -1,6 +1,7 @@
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import z from 'zod';
-import registerUserFactory from '../../services/user-services/factories/register-user-factory';
+import { registerUserFactory } from '../../services/user-services/factories/register-user-factory';
+import InMemoryUserRepository from '../../repositories/in-memory/user-repository-memory';
 
 export default async function registerController(request: FastifyRequest, reply: FastifyReply) {
   const requestBodySchema = z.object({
@@ -16,8 +17,9 @@ export default async function registerController(request: FastifyRequest, reply:
   const { email, password } = requestBodySchema.parse(request.body);
 
   try {
-    const registerUserService = registerUserFactory();
-    await registerUserService.execute(email, password);
+    const userRepository = new InMemoryUserRepository();
+    const registerUserService = registerUserFactory(userRepository);
+    await registerUserService.execute({ email, password });
   } catch (error) {
     return reply.status(400).send({ error: error instanceof Error ? error.message : 'Unknown error' });
   }

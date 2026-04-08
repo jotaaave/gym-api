@@ -5,23 +5,22 @@ import InMemoryUserRepository from '../../../repositories/in-memory/user-reposit
 import UserAlreadyExists from '../../../errors/UserAlreadyExists';
 import type { UserRepository } from '../../../repositories/types/user-repository';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-let usr: UserRepository
+let usr: UserRepository;
 let sut: RegisterUserService;
 
 describe('Register User Service', () => {
   beforeEach(() => {
     usr = new InMemoryUserRepository();
     sut = registerUserFactory(usr);
-  })
+  });
 
   it('should be able to register a user successfully', async () => {
     const fakeUser = {
       email: 'test@example.com',
-      password: 'password123'
-    }
+      password: 'password123',
+    };
 
-    const { user } = await sut.execute(fakeUser)
+    const { user } = await sut.execute(fakeUser);
 
     expect(user.email).toBe(fakeUser.email);
   });
@@ -29,11 +28,11 @@ describe('Register User Service', () => {
   it('should not be able to register a user with an existing email', async () => {
     const fakeUser = {
       email: 'test@example.com',
-      password: 'password123'
-    }
+      password: 'password123',
+    };
 
-    await sut.execute(fakeUser)
+    await sut.execute(fakeUser);
 
     await expect(async () => await sut.execute(fakeUser)).rejects.toBeInstanceOf(UserAlreadyExists);
   });
-})
+});

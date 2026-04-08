@@ -7,11 +7,13 @@ dotenv.configDotenv();
 const zodEnvSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   PORT: z.coerce.number().default(3333),
+  DATABASE_URL: z.coerce.string(),
 })
 
 const env = zodEnvSchema.safeParse({
   PORT: process.env.PORT,
   NODE_ENV: process.env.NODE_ENV,
+  DATABASE_URL: process.env.DATABASE_URL,
 });
 
 if (!env.success) {
