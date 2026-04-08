@@ -5,6 +5,7 @@ import type AuthenticateUserService from '../authenticate-user-service';
 import { authenticateUserFactory } from '../factories/authenticate-user-factory';
 import type RegisterUserService from '../register-user-service';
 import { registerUserFactory } from '../factories/register-user-factory';
+import InvalidFormData from '../../../errors/InvalidFormData';
 
 let usr: UserRepository;
 let sut: AuthenticateUserService;
@@ -32,5 +33,44 @@ describe('Authenticate User Service', () => {
     const { user } = await sut.execute(fakeUser);
 
     expect(user.email).toBe(fakeUser.email);
+  });
+
+  it("should not be able to authenticate a user with wrong email", async () => {
+    const fakeUser = {
+      email: 'wrong@example.com',
+      password: 'password123',
+    };
+
+    await registerUserService.execute({
+      name: 'Test User',
+      email: 'test@example.com',
+      passwordHash: 'password123',
+    });
+
+    await expect(async () => await sut.execute(fakeUser)).rejects.toBeInstanceOf(InvalidFormData)
+  });
+
+  it("should not be able to authenticate a user with non-existent email", async () => {
+    const fakeUser = {
+      email: 'wrong@example.com',
+      password: 'password123',
+    };
+
+    await expect(async () => await sut.execute(fakeUser)).rejects.toBeInstanceOf(InvalidFormData)
+  });
+
+  it("should not be able to authenticate a user with wrong password", async () => {
+    const fakeUser = {
+      email: 'test@example.com',
+      password: 'wrongpassword',
+    };
+
+    await registerUserService.execute({
+      name: 'Test User',
+      email: 'test@example.com',
+      passwordHash: 'password123',
+    });
+
+    await expect(async () => await sut.execute(fakeUser)).rejects.toBeInstanceOf(InvalidFormData);
   });
 });
