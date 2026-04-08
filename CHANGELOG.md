@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/jotaaave/gym-api/compare/v1.1.0...v1.1.1) (2026-04-08)
+
+
+### Bug Fixes
+
+* configure release-please to monitor dev branch ([2a2b056](https://github.com/jotaaave/gym-api/commit/2a2b0567f23c6803d439d2034b8002ba1e65e648))
+
 ## [1.1.0](https://github.com/jotaaave/gym-api/compare/v1.0.0...v1.1.0) (2026-04-08)
 
 
