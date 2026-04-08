@@ -1,4 +1,3 @@
-export default interface User {
-  email: string;
-  password: string;
-}
+import type { UserCreateInput } from "../generated/prisma/models";
+
+export type User = UserCreateInput;
