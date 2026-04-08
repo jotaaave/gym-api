@@ -8,7 +8,7 @@ export default class InMemoryUserRepository implements UserRepository {
       id: uuidv4(),
       email: "usertest@example.com",
       name: "John Doe",
-      passwordHash: "$2b$10$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36iQoeG6Lruj3mS0i8m",
+      passwordHash: "$2b$06$jvUIHg5O3c82Lxjbr72FV.lLbqiStua9KVy5GVb9.zeka96bwSLJW",
       createdAt: new Date(),
       updatedAt: new Date(),
 
