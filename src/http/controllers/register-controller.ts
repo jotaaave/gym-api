@@ -20,10 +20,13 @@ export default async function registerController(request: FastifyRequest, reply:
   try {
     const userRepository = new InMemoryUserRepository();
     const registerUserService = registerUserFactory(userRepository);
-    await registerUserService.execute({ email, password, name });
+    const { user } = await registerUserService.execute({ email, password, name });
+
+    reply.send({
+      message: 'User registered successfully',
+      user
+    });
   } catch (error) {
     return reply.status(400).send({ error: error instanceof Error ? error.message : 'Unknown error' });
   }
-
-  reply.send({ message: 'User registration endpoint' });
 }
