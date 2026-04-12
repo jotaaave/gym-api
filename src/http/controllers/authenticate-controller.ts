@@ -27,6 +27,8 @@ export default async function authenticateController(request: FastifyRequest, re
       token: 'fake-jwt-token',
     });
   } catch (error) {
-    return reply.status(400).send({ error: error instanceof Error ? error.message : 'Unknown error' });
+    return reply
+      .status(400)
+      .send({ error: error instanceof Error ? error.message : 'Unknown error' });
   }
 }

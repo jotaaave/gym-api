@@ -26,9 +26,11 @@ export default async function registerController(request: FastifyRequest, reply:
 
     reply.send({
       message: 'User registered successfully',
-      user: userWithoutPassword
+      user: userWithoutPassword,
     });
   } catch (error) {
-    return reply.status(400).send({ error: error instanceof Error ? error.message : 'Unknown error' });
+    return reply
+      .status(400)
+      .send({ error: error instanceof Error ? error.message : 'Unknown error' });
   }
 }
