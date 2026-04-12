@@ -17,7 +17,7 @@ describe('Register User Service', () => {
 
   it('should be able to register a user successfully', async () => {
     const fakeUser = {
-      name: "João",
+      name: 'João',
       email: 'test@example.com',
       passwordHash: 'password123',
     };
@@ -29,7 +29,7 @@ describe('Register User Service', () => {
 
   it('should be able to hash the password', async () => {
     const fakeUser = {
-      name: "João",
+      name: 'João',
       email: 'test@example.com',
       passwordHash: 'password123',
     };
@@ -43,7 +43,7 @@ describe('Register User Service', () => {
 
   it('should not be able to register a user with an existing email', async () => {
     const fakeUser = {
-      name: "João",
+      name: 'João',
       email: 'test@example.com',
       passwordHash: 'password123',
     };
