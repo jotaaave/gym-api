@@ -1,10 +1,10 @@
 # 🏋️‍♂️ GymPass Style API
 
-![GitHub repo size](https://img.shields.io/github/repo-size/jotaaave/gym-api-rest?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/jotaaave/gym-api-rest?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/jotaaave/gym-api-rest?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/jotaaave/gym-api-rest?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/jotaaave/gym-api-rest?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/jotaaave/gym-api?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/jotaaave/gym-api?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/jotaaave/gym-api?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/jotaaave/gym-api?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/jotaaave/gym-api?style=for-the-badge)
 
 > Uma API RESTful para gerenciamento de check-ins em academias, inspirada no modelo do Gympass.
 
