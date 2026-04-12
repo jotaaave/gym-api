@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.0](https://github.com/jotaaave/gym-api/compare/v1.1.1...v1.2.0) (2026-04-12)
+
+
+### Features
+
+* **user:** added test for get profile service ([e806ac3](https://github.com/jotaaave/gym-api/commit/e806ac3b34aaa04c77a70fcb41884aa620f4b177))
+* **user:** create get user service ([7730a30](https://github.com/jotaaave/gym-api/commit/7730a30486f84fc1bc835cc901a6fb7a1db5b7f1))
+* **user:** created factory for GetProfileService ([f8a8047](https://github.com/jotaaave/gym-api/commit/f8a8047569f0614ec024c23bb379240f4b00f772))
+* **user:** user routes updated and added controller profile ([9093162](https://github.com/jotaaave/gym-api/commit/90931623366335fef6c4b5049f04198f0270b731))
+
 ## [1.1.1](https://github.com/jotaaave/gym-api/compare/v1.1.0...v1.1.1) (2026-04-08)
 
 
